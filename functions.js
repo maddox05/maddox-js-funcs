@@ -56,7 +56,7 @@ export function getDateDiffInDays(date1, date2) {
  * @param {String} path ex. app.class.classes
  */
 export function sendObjToPath(object, path) {
-  const arr = path.split('.');
+  const arr = path.split(".");
   for (let i = 0; i < arr.length; i++) {
     object = object[arr[i]];
   }
@@ -64,18 +64,16 @@ export function sendObjToPath(object, path) {
 }
 
 export function turnUnderscoreIntoSpace(input) {
-  let tmp = '';
+  let tmp = "";
   for (let i = 0; i < input.length; i++) {
-    if (input[i] === '_') {
-      tmp = tmp + ' ';
+    if (input[i] === "_") {
+      tmp = tmp + " ";
     } else tmp = tmp + input[i];
   }
   return tmp;
 }
 
-import { createSelector } from 'reselect';
-import { selectMutlipleBinarySearch } from '../../../shared/globalFuncs';
-
+import { createSelector } from "reselect";
 /**
  *
  * @param {String} path ex app.home.userCount
@@ -106,7 +104,7 @@ export function selectArrayOfStateById(path, idName, id) {
         }
       }
       return tmp;
-    },
+    }
   );
 }
 
@@ -133,7 +131,7 @@ export function selectBINARYArrayOfStateById(path, idName, id) {
       id = parseInt(id);
 
       return selectMutlipleBinarySearch(stateArr, idName, id);
-    },
+    }
   );
 }
 
@@ -163,7 +161,7 @@ export function selectArrayOfStateByGroupId(path, id) {
         }
       }
       return tmp;
-    },
+    }
   );
 }
 
@@ -214,7 +212,12 @@ export function updateArrObjectsWithNewVals(old, newA) {
  * @param {Array} keyNames
  * @param {*} needle
  */
-export function findNeedleInArrayOfObjectsLINEAR(array, keyName, needle, keyWanted) {
+export function findNeedleInArrayOfObjectsLINEAR(
+  array,
+  keyName,
+  needle,
+  keyWanted
+) {
   if (!array || !needle) return null;
   for (let i = 0; i < array.length; i++) {
     if (array[i][keyName] == needle) {
@@ -231,7 +234,12 @@ export function findNeedleInArrayOfObjectsLINEAR(array, keyName, needle, keyWant
  * @param {Array} needles ex ["Test_Topic", "1"]
  * @param {Array} keyWanted key you want returned at location where it found the needle
  */
-export function findNeedlesInArrayOfObjectsLINEAR(array, keyNamesToCheck, needles, returnKeyWanted) {
+export function findNeedlesInArrayOfObjectsLINEAR(
+  array,
+  keyNamesToCheck,
+  needles,
+  returnKeyWanted
+) {
   if (!array || !needles || !keyNamesToCheck || !returnKeyWanted) {
     return null;
   }
@@ -258,12 +266,21 @@ export function findNeedlesInArrayOfObjectsLINEAR(array, keyNamesToCheck, needle
  * @param {String} including
  */
 export function selectArrayOfIncludingItem(array, objectKeyToCheck, including) {
-  if (including === '' || objectKeyToCheck === '' || array?.length === 0 || !array) {
+  if (
+    including === "" ||
+    objectKeyToCheck === "" ||
+    array?.length === 0 ||
+    !array
+  ) {
     return array;
   }
   let ret = [];
   for (let i = 0; i < array.length; i++) {
-    if (String(array[i]?.[objectKeyToCheck])?.toLowerCase()?.includes(including?.toLowerCase())) {
+    if (
+      String(array[i]?.[objectKeyToCheck])
+        ?.toLowerCase()
+        ?.includes(including?.toLowerCase())
+    ) {
       ret.push(array[i]);
     }
   }
@@ -276,7 +293,11 @@ export function selectArrayOfIncludingItem(array, objectKeyToCheck, including) {
  * @param {Array} keysToCheck
  * @param {Array} valuesIncluded
  */
-export function selectArrayOfIncludingItems(array, keysToCheck, valuesIncluded) {
+export function selectArrayOfIncludingItems(
+  array,
+  keysToCheck,
+  valuesIncluded
+) {
   // todo if im trying to pull in question 430 it will pull in question 43, 30, and 430
   if (!Array.isArray(array) || keysToCheck == null) {
     return array;
@@ -284,7 +305,7 @@ export function selectArrayOfIncludingItems(array, keysToCheck, valuesIncluded) 
 
   let canRetEarly = true;
   for (let i = 0; i < keysToCheck?.length; i++) {
-    if (valuesIncluded[i] == '' || valuesIncluded[i] == null) {
+    if (valuesIncluded[i] == "" || valuesIncluded[i] == null) {
     } else {
       canRetEarly = false;
     }
@@ -299,8 +320,10 @@ export function selectArrayOfIncludingItems(array, keysToCheck, valuesIncluded) 
     for (let j = 0; j < keysToCheck.length; j++) {
       // go through keys
       if (
-        valuesIncluded[j] === '' ||
-        String(array[i]?.[keysToCheck[j]])?.toLowerCase()?.includes(valuesIncluded[j]?.toLowerCase())
+        valuesIncluded[j] === "" ||
+        String(array[i]?.[keysToCheck[j]])
+          ?.toLowerCase()
+          ?.includes(valuesIncluded[j]?.toLowerCase())
       ) {
       } else {
         canAdd = false;
@@ -319,14 +342,18 @@ export function selectArrayOfIncludingItems(array, keysToCheck, valuesIncluded) 
  * @param {Array} keysToCheck
  * @param {Array} valuesIncluded
  */
-export function selectArrayOfIncludingItemsByNumber(array, keysToCheck, valuesIncluded) {
+export function selectArrayOfIncludingItemsByNumber(
+  array,
+  keysToCheck,
+  valuesIncluded
+) {
   if (!Array.isArray(array) || !Array.isArray(keysToCheck)) {
     return array;
   }
 
   let canRetEarly = true;
   for (let i = 0; i < keysToCheck?.length; i++) {
-    if (valuesIncluded[i] == '' || valuesIncluded[i] == null) {
+    if (valuesIncluded[i] == "" || valuesIncluded[i] == null) {
     } else {
       canRetEarly = false;
     }
@@ -338,10 +365,10 @@ export function selectArrayOfIncludingItemsByNumber(array, keysToCheck, valuesIn
   for (let i = 0; i < array.length; i++) {
     let canAdd = true;
     for (let j = 0; j < keysToCheck.length; j++) {
-      if (valuesIncluded[j] !== '') {
+      if (valuesIncluded[j] !== "") {
         const curId = valuesIncluded[j];
         if (Array.isArray(array[i][keysToCheck[j]])) {
-          let tmp = String(array[i][keysToCheck[j]]).split(',');
+          let tmp = String(array[i][keysToCheck[j]]).split(",");
           for (let k = 0; k < tmp.length; k++) {
             if (tmp[k] == curId) {
               break;
@@ -732,4 +759,3 @@ export function countingSort(arr, sortBy) {
   }
   return ret;
 }
-
