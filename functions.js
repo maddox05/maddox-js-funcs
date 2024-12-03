@@ -171,6 +171,7 @@ export function checkEquivalenceOfObjects(obj1, obj2) {
   let o1keys = Object.keys(obj1);
   for (let i = 0; i < o1keys.length; i++) {
     if (obj1[o1keys[i]] == obj2[o1keys[i]]) {
+      continue;
     } else {
       //console.log(obj1, 'and ', obj2, ' are not equal');
       return false;
@@ -199,6 +200,7 @@ export function updateArrObjectsWithNewVals(old, newA) {
   let ret = [...old];
   for (let i = 0; i < newA.length; i++) {
     if (map && newA[i].id in map) {
+      continue;
     } else {
       ret.push(newA[i]);
     }
@@ -306,6 +308,7 @@ export function selectArrayOfIncludingItems(
   let canRetEarly = true;
   for (let i = 0; i < keysToCheck?.length; i++) {
     if (valuesIncluded[i] == "" || valuesIncluded[i] == null) {
+      continue;
     } else {
       canRetEarly = false;
     }
@@ -325,6 +328,7 @@ export function selectArrayOfIncludingItems(
           ?.toLowerCase()
           ?.includes(valuesIncluded[j]?.toLowerCase())
       ) {
+        continue;
       } else {
         canAdd = false;
       }
@@ -354,6 +358,7 @@ export function selectArrayOfIncludingItemsByNumber(
   let canRetEarly = true;
   for (let i = 0; i < keysToCheck?.length; i++) {
     if (valuesIncluded[i] == "" || valuesIncluded[i] == null) {
+      continue;
     } else {
       canRetEarly = false;
     }
@@ -378,6 +383,7 @@ export function selectArrayOfIncludingItemsByNumber(
           }
         } else {
           if (array[i][keysToCheck[j]] == curId) {
+            continue;
           } else {
             canAdd = false;
           }
@@ -501,7 +507,7 @@ export function updateObjectWithFirstKeyNotInObject(object, keys) {
   return object;
 }
 
-import Rand, { PRNG } from "rand-seed";
+import Rand from "rand-seed";
 
 /**
  *
