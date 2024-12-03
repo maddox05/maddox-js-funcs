@@ -765,3 +765,11 @@ export function countingSort(arr, sortBy) {
   }
   return ret;
 }
+
+export function getSiteTitle(withTLD) {
+  const title =
+    window.location.hostname[0].toUpperCase() +
+    window.location.hostname.slice(1);
+  if (withTLD) return title;
+  else return title.split(".")[0];
+}
