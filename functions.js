@@ -1,3 +1,6 @@
+import { createSelector } from "reselect";
+import Rand from "rand-seed";
+
 /**
  *
  * @param {Array<Object>} arr array to copy
@@ -72,8 +75,6 @@ export function turnUnderscoreIntoSpace(input) {
   }
   return tmp;
 }
-
-import { createSelector } from "reselect";
 /**
  *
  * @param {String} path ex app.home.userCount
@@ -506,8 +507,6 @@ export function updateObjectWithFirstKeyNotInObject(object, keys) {
   }
   return object;
 }
-
-import Rand from "rand-seed";
 
 /**
  *

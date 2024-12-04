@@ -1,0 +1,24 @@
+{
+  "name": "maddox-js-funcs",
+  "version": "1.0.0",
+  "description": "functions I found helpful in my react/redux/express stack",
+  "main": "functions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maddox05/maddox-js-funcs.git"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "functions"
+  ],
+  "author": "maddox schmidlkofer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maddox05/maddox-js-funcs/issues"
+  },
+  "homepage": "https://github.com/maddox05/maddox-js-funcs#readme"
+}
