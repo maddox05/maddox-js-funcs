@@ -514,6 +514,9 @@ import Rand from "rand-seed";
  * @param {String} given will be used with new Date(given)
  */
 export function curTimeUTCMinusGiven(given) {
+  if (!given) {
+    return null;
+  }
   // testable
   const diff = Math.abs(new Date().getTime() - new Date(given)) / 86400000;
   if (diff < 0) {
@@ -531,7 +534,7 @@ export class Streak {
 
   hasStreak() {
     if (this.timeSince == null) {
-      return true;
+      return false;
     }
     if (this.timeSince > 2) {
       return false;
