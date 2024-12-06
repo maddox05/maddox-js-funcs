@@ -1,7 +1,7 @@
 {
   "name": "maddox-js-funcs",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "functions I found helpful in my react/redux/express stack",
   "main": "functions.js",
   "scripts": {
