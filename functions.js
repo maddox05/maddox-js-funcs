@@ -775,3 +775,19 @@ export function getSiteTitle(withTLD) {
   if (withTLD) return title;
   else return title.split(".")[0];
 }
+
+/**
+ * Uses ===
+ * @param {Array} array
+ * @param {String} idName
+ * @param {Any} id
+ * @returns {*} returns the object found or null
+ */
+export function selectItemById(array, idName, id) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]?.[idName] === id) {
+      return array[i];
+    }
+  }
+  return null;
+}
