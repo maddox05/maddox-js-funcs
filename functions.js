@@ -695,7 +695,7 @@ export function selectMutlipleBinarySearch(haystack, needleName, needle) {
   // trying to find a item that has the correct needle and the item before it does NOT have the correct needle.
   while (true) {
     middle = Math.floor((right + left) / 2);
-    if (haystack[middle][needleName] === needle) {
+    if (haystack?.[middle]?.[needleName] === needle) {
       found_index = middle;
       break;
     }
@@ -784,6 +784,9 @@ export function getSiteTitle(withTLD) {
  * @returns {*} returns the object found or null
  */
 export function selectItemById(array, idName, id) {
+  if (!Array.isArray(array)) {
+    return null;
+  }
   for (let i = 0; i < array.length; i++) {
     if (array[i]?.[idName] === id) {
       return array[i];
