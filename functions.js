@@ -83,29 +83,26 @@ export function turnUnderscoreIntoSpace(input) {
  */
 export function selectArrayOfStateById(path, idName, id) {
   // make a function that takes in the state and the path and finds the state at that path or returns null.
-  return (
-    (state) => state,
-    function (state) {
-      const stateArr = sendObjToPath(state, path);
-      if (!stateArr) {
-        //console.count('no state found');
-        return null;
-      }
-      if (!path || !idName || !id) {
-        return null;
-      }
-      if (isNaN(id)) {
-        parseInt(id);
-      }
-      let tmp = [];
-      for (let i = 0; i < stateArr.length; i++) {
-        if (stateArr[i][idName] === id) {
-          tmp.push(stateArr[i]);
-        }
-      }
-      return tmp;
+  return function (state) {
+    const stateArr = sendObjToPath(state, path);
+    if (!stateArr) {
+      //console.count('no state found');
+      return null;
     }
-  );
+    if (!path || !idName || !id) {
+      return null;
+    }
+    if (isNaN(id)) {
+      parseInt(id);
+    }
+    let tmp = [];
+    for (let i = 0; i < stateArr.length; i++) {
+      if (stateArr[i][idName] === id) {
+        tmp.push(stateArr[i]);
+      }
+    }
+    return tmp;
+  };
 }
 
 /**
@@ -117,52 +114,46 @@ export function selectArrayOfStateById(path, idName, id) {
  */
 export function selectBINARYArrayOfStateById(path, idName, id) {
   // make a function that takes in the state and the path and finds the state at that path or returns null.
-  return (
-    (state) => state,
-    function (state) {
-      const stateArr = sendObjToPath(state, path);
-      if (!Array.isArray(stateArr)) {
-        //console.count('no state found');
-        return null;
-      }
-      if (!path || !idName || !id) {
-        return null;
-      }
-      id = parseInt(id);
-
-      return selectMultipleBinarySearch(stateArr, idName, id);
+  return function (state) {
+    const stateArr = sendObjToPath(state, path);
+    if (!Array.isArray(stateArr)) {
+      //console.count('no state found');
+      return null;
     }
-  );
+    if (!path || !idName || !id) {
+      return null;
+    }
+    id = parseInt(id);
+
+    return selectMultipleBinarySearch(stateArr, idName, id);
+  };
 }
 
 export function selectArrayOfStateByGroupId(path, id) {
   // make a function that takes in the state and the path and finds the state at that path or returns null.
-  return (
-    (state) => state,
-    function (state) {
-      const stateArr = sendObjToPath(state, path);
-      if (!stateArr) {
-        //console.count('no state found');
-        return null;
-      }
-      if (!path || !id) {
-        return null;
-      }
-      if (!isNaN(id)) {
-        parseInt(id);
-      }
-      let tmp = [];
-      for (let i = 0; i < stateArr.length; i++) {
-        for (let j = 0; j < stateArr[i]?.group_id?.length; j++) {
-          if (stateArr[i]?.group_id[j] === id) {
-            tmp.push(stateArr[i]);
-            break; // we can add this so go next
-          }
+  return function (state) {
+    const stateArr = sendObjToPath(state, path);
+    if (!stateArr) {
+      //console.count('no state found');
+      return null;
+    }
+    if (!path || !id) {
+      return null;
+    }
+    if (!isNaN(id)) {
+      parseInt(id);
+    }
+    let tmp = [];
+    for (let i = 0; i < stateArr.length; i++) {
+      for (let j = 0; j < stateArr[i]?.group_id?.length; j++) {
+        if (stateArr[i]?.group_id[j] === id) {
+          tmp.push(stateArr[i]);
+          break; // we can add this so go next
         }
       }
-      return tmp;
     }
-  );
+    return tmp;
+  };
 }
 
 // pls pass in two objs with same keys TODO TEST
