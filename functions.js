@@ -109,7 +109,7 @@ export function selectArrayOfStateById(path, idName, id) {
  *
  * @param {String} path ex app.home.userCount
  * @param {String} idName ex class_id
- * @param {int} id
+ * @param {*} id
  * @returns array at that position only with the matching id objects
  */
 export function selectBINARYArrayOfStateById(path, idName, id) {
@@ -123,7 +123,6 @@ export function selectBINARYArrayOfStateById(path, idName, id) {
     if (!path || !idName || !id) {
       return null;
     }
-    id = parseInt(id);
 
     return selectMultipleBinarySearch(stateArr, idName, id);
   };
