@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/maddox05/maddox-js-funcs/issues"
   },
-  "homepage": "https://github.com/maddox05/maddox-js-funcs#readme"
+  "homepage": "https://github.com/maddox05/maddox-js-funcs#readme",
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  },
+  "dependencies": {
+    "rand-seed": "^2.1.7"
+  }
 }

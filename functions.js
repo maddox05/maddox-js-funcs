@@ -1,4 +1,3 @@
-import { createSelector } from "reselect";
 import Rand from "rand-seed";
 
 /**
@@ -84,7 +83,7 @@ export function turnUnderscoreIntoSpace(input) {
  */
 export function selectArrayOfStateById(path, idName, id) {
   // make a function that takes in the state and the path and finds the state at that path or returns null.
-  return createSelector(
+  return (
     (state) => state,
     function (state) {
       const stateArr = sendObjToPath(state, path);
@@ -118,7 +117,7 @@ export function selectArrayOfStateById(path, idName, id) {
  */
 export function selectBINARYArrayOfStateById(path, idName, id) {
   // make a function that takes in the state and the path and finds the state at that path or returns null.
-  return createSelector(
+  return (
     (state) => state,
     function (state) {
       const stateArr = sendObjToPath(state, path);
@@ -131,14 +130,14 @@ export function selectBINARYArrayOfStateById(path, idName, id) {
       }
       id = parseInt(id);
 
-      return selectMutlipleBinarySearch(stateArr, idName, id);
+      return selectMultipleBinarySearch(stateArr, idName, id);
     }
   );
 }
 
 export function selectArrayOfStateByGroupId(path, id) {
   // make a function that takes in the state and the path and finds the state at that path or returns null.
-  return createSelector(
+  return (
     (state) => state,
     function (state) {
       const stateArr = sendObjToPath(state, path);
@@ -678,7 +677,7 @@ export function mergeData(data) {
  * @param {String} needleName
  * @param {*} needle must be compareable
  */
-export function selectMutlipleBinarySearch(haystack, needleName, needle) {
+export function selectMultipleBinarySearch(haystack, needleName, needle) {
   if (
     !Array.isArray(haystack) ||
     !needleName ||
@@ -695,7 +694,7 @@ export function selectMutlipleBinarySearch(haystack, needleName, needle) {
   // trying to find a item that has the correct needle and the item before it does NOT have the correct needle.
   while (true) {
     middle = Math.floor((right + left) / 2);
-    if (haystack?.[middle]?.[needleName] === needle) {
+    if (haystack?.[middle][needleName] === needle) {
       found_index = middle;
       break;
     }
@@ -714,6 +713,7 @@ export function selectMutlipleBinarySearch(haystack, needleName, needle) {
       console.error(
         "i did not account for this case fatal error selectMutlipleBinarySearch"
       );
+      return [];
     }
   }
 
