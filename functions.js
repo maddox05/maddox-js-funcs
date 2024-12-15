@@ -332,6 +332,7 @@ export function selectArrayOfIncludingItems(
 
 /**
  * checks equivalances using == againt the array and filter u are using. if valuesIncluded[i] == '' it is skipped
+ * checks exact equivalence (the number u are using in the filter will be checked with == to the key)
  * @param {Array} array
  * @param {Array} keysToCheck
  * @param {Array} valuesIncluded
