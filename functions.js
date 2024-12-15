@@ -316,7 +316,7 @@ export function selectArrayOfIncludingItems(
         valuesIncluded[j] === "" ||
         String(array[i]?.[keysToCheck[j]])
           ?.toLowerCase()
-          ?.includes(valuesIncluded[j]?.toLowerCase())
+          ?.includes(String(valuesIncluded[j])?.toLowerCase())
       ) {
         continue;
       } else {
