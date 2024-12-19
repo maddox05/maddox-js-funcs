@@ -785,3 +785,36 @@ export function selectItemById(array, idName, id) {
   }
   return null;
 }
+
+/**
+ * Pass in an array of objects pls
+ * Uses ===
+ * @param {Array} array
+ * @param {String} idName
+ * @param {Any} id
+ * @returns {*} returns the object found or null
+ */
+export function selectBinaryItemById(array, idName, id) {
+  if (!Array.isArray(array)) {
+    return null;
+  }
+  let left = 0;
+  let right = array.length - 1;
+  let middle = 0;
+  while (true) {
+    middle = Math.floor((right + left) / 2);
+    if (array[middle][idName] === id) {
+      return array[middle];
+    }
+    if (left >= right) {
+      return null;
+    }
+    if (id > array[middle][idName]) {
+      left = middle + 1;
+    } else if (id < array[middle][idName]) {
+      right = middle - 1;
+    } else {
+      console.log("i did not account for this case selectBinaryItemById");
+    }
+  }
+}
