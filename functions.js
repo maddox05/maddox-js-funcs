@@ -627,41 +627,6 @@ export function checkObjectDifferenceAndMerge(obj1, obj2) {
 }
 
 /**
- * operates on .id
- * REQUIRES DATA TO BE SORTED BY its id prop
- * Merges data pulled in w multiple [keyName] ids into one.
- * if a row with the same id has a different object, it will create a array to house the differences.
- * @param {Array} data
- * @param {String} keyName
- * @returns {Array} updated data
- */
-export function mergeData(data) {
-  if (!Array.isArray(data) || data.length <= 0) {
-    return null;
-  }
-  const dataCopy = structuredClone(data);
-  let updated_arr = [];
-  let accumulated_object = {};
-  let j = 0;
-  for (let i = 0; i < dataCopy.length; i = j) {
-    accumulated_object = dataCopy[i];
-    for (j = i + 1; j < dataCopy.length; j++) {
-      if (dataCopy[i]?.id === dataCopy[j]?.id) {
-        accumulated_object = checkObjectDifferenceAndMerge(
-          dataCopy[i],
-          dataCopy[j]
-        );
-        dataCopy[i] = accumulated_object;
-      } else {
-        break;
-      }
-    }
-    updated_arr.push(accumulated_object);
-  }
-  return updated_arr;
-}
-
-/**
  * Find item, then accumulate. Item MUST be sorted by the needleName key.
  *
  * @param {Array<Object>} haystack your haystack must an arr of objects where the needleName holds a value which is compareable.
