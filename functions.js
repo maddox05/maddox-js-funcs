@@ -650,7 +650,7 @@ export function selectMultipleBinarySearch(haystack, needleName, needle) {
   // trying to find a item that has the correct needle and the item before it does NOT have the correct needle.
   while (true) {
     middle = Math.floor((right + left) / 2);
-    if (haystack?.[middle][needleName] === needle) {
+    if (haystack?.[middle]?.[needleName] === needle) {
       found_index = middle;
       break;
     }
