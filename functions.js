@@ -665,11 +665,6 @@ export function selectMultipleBinarySearch(haystack, needleName, needle) {
       left = middle + 1; // go right
     } else if (needle < haystack[middle][needleName]) {
       right = middle - 1; // go left
-    } else {
-      console.error(
-        "i did not account for this case FATAL ERROR selectMutlipleBinarySearch"
-      );
-      return [];
     }
   }
 
@@ -757,7 +752,7 @@ export function selectItemById(array, idName, id) {
  * @param {Array} array
  * @param {String} idName
  * @param {Any} id
- * @returns {*} returns the object found or null
+ * @returns {Object} returns the object found or null
  */
 export function selectBinaryItemById(array, idName, id) {
   if (!Array.isArray(array)) {
@@ -768,18 +763,17 @@ export function selectBinaryItemById(array, idName, id) {
   let middle = 0;
   while (true) {
     middle = Math.floor((right + left) / 2);
+    if (right < left) {
+      return null;
+    }
     if (array[middle][idName] === id) {
       return array[middle];
     }
-    if (left >= right) {
-      return null;
-    }
+
     if (id > array[middle][idName]) {
       left = middle + 1;
     } else if (id < array[middle][idName]) {
       right = middle - 1;
-    } else {
-      console.log("i did not account for this case selectBinaryItemById");
     }
   }
 }
