@@ -649,13 +649,13 @@ export function selectMultipleBinarySearch(haystack, needleName, needle) {
   let found_index = -1;
   // trying to find a item that has the correct needle and the item before it does NOT have the correct needle.
   while (true) {
+    if (right < left) {
+      return []; // not found
+    }
     middle = Math.floor((right + left) / 2);
-    if (haystack?.[middle]?.[needleName] === needle) {
+    if (haystack[middle][needleName] === needle) {
       found_index = middle;
       break;
-    }
-    if (right <= left) {
-      return []; // not found
     }
 
     if (haystack[middle][needleName] === needle) {
@@ -667,7 +667,7 @@ export function selectMultipleBinarySearch(haystack, needleName, needle) {
       right = middle - 1; // go left
     } else {
       console.error(
-        "i did not account for this case fatal error selectMutlipleBinarySearch"
+        "i did not account for this case FATAL ERROR selectMutlipleBinarySearch"
       );
       return [];
     }
