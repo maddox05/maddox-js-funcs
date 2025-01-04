@@ -254,6 +254,7 @@ export function selectArrayOfIncludingItem(array, objectKeyToCheck, including) {
 
 /**
  * casts everything to a string and calls includes
+ * issue is it would match 2 and 22 if value to find was 222
  * @param {Array} array
  * @param {Array} keysToCheck
  * @param {Array} valuesIncluded
@@ -336,7 +337,10 @@ export function selectArrayOfIncludingItemsByNumber(
     for (let j = 0; j < keysToCheck.length; j++) {
       if (valuesIncluded[j] !== "") {
         const curId = valuesIncluded[j];
-        if (Array.isArray(array[i][keysToCheck[j]])) {
+        if (
+          Array.isArray(array[i][keysToCheck[j]]) ||
+          array[i][keysToCheck[j]]?.includes(",")
+        ) {
           let tmp = String(array[i][keysToCheck[j]]).split(",");
           for (let k = 0; k < tmp.length; k++) {
             if (tmp[k] == curId) {
