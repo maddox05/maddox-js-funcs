@@ -337,7 +337,6 @@ export function selectArrayOfIncludingItemsByNumber(
     for (let j = 0; j < keysToCheck.length; j++) {
       if (valuesIncluded[j] !== "") {
         const curId = valuesIncluded[j];
-        console.log(array[i][keysToCheck[j]]);
         if (
           Array.isArray(array[i][keysToCheck[j]]) ||
           String(array[i][keysToCheck[j]]).includes(",")
