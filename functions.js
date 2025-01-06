@@ -626,10 +626,7 @@ export function selectMultipleBinarySearch(haystack, needleName, needle) {
   let middle;
   let found_index = -1;
   // trying to find a item that has the correct needle and the item before it does NOT have the correct needle.
-  while (true) {
-    if (right < left) {
-      return []; // not found
-    }
+  while (right > left) {
     middle = Math.floor((right + left) / 2);
     if (haystack[middle][needleName] === needle) {
       found_index = middle;
@@ -644,6 +641,9 @@ export function selectMultipleBinarySearch(haystack, needleName, needle) {
     } else if (needle < haystack[middle][needleName]) {
       right = middle - 1; // go left
     }
+  }
+  if (right < left) {
+    return [];
   }
 
   // we found a index we want, now backtrack to first item (backtracks to 0 or first item)
@@ -739,11 +739,9 @@ export function selectBinaryItemById(array, idName, id) {
   let left = 0;
   let right = array.length - 1;
   let middle = 0;
-  while (true) {
+  while (right > left) {
     middle = Math.floor((right + left) / 2);
-    if (right < left) {
-      return null;
-    }
+
     if (array[middle][idName] === id) {
       return array[middle];
     }
@@ -754,4 +752,5 @@ export function selectBinaryItemById(array, idName, id) {
       right = middle - 1;
     }
   }
+  return [];
 }

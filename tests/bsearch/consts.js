@@ -2357,3 +2357,38 @@ export const apps = [
     categories: "Multiplayer",
   },
 ];
+
+export const pdfs = [
+  {
+    id: 5,
+    link: "https://drive.google.com/file/d/1poZa1O7FEwPkvXtS4GYW0DlXxIgyS4q_/preview",
+    name: "EXAM1AMSolutions",
+    class_id: 9,
+    class_category: 2,
+    school_id: 2,
+  },
+  {
+    id: 6,
+    link: "https://drive.google.com/file/d/1rBKLxZIlL89CbRGul1aLajRJ9C7XRvXh/preview",
+    name: "Exam2AMSolutions",
+    class_id: 9,
+    class_category: 2,
+    school_id: 2,
+  },
+  {
+    id: 7,
+    link: "https://drive.google.com/file/d/1sl8Ek46QZaPn_4EKQhXI1MpngxAiPi_G/preview",
+    name: "Exam3AMSolutions",
+    class_id: 9,
+    class_category: 2,
+    school_id: 2,
+  },
+  {
+    id: 8,
+    link: "https://drive.google.com/file/d/18tyoCGHKlp5DE1P1Hr4DDVgcPiPB-Gkj/preview",
+    name: "smthing calc 1 related",
+    class_id: 9,
+    class_category: 2,
+    school_id: 2,
+  },
+];

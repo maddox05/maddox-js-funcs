@@ -1,6 +1,9 @@
 import test, { expect } from "playwright/test";
-import { selectBinaryItemById, selectMultipleBinarySearch } from "../functions";
-import { apps, classes_without_purdue_classes } from "./consts";
+import {
+  selectBinaryItemById,
+  selectMultipleBinarySearch,
+} from "../../functions";
+import { apps, classes_without_purdue_classes, pdfs } from "./consts";
 
 test("expect selectMultipleBinarySearch given an array of objects and only 1 object to select and a string key to return an array of that one object", () => {
   const result = selectMultipleBinarySearch(apps, "title", "Stumble-Guys");
@@ -33,4 +36,9 @@ test("expect selectBinaryItemById given an array of objects and only 1 object to
     desc: null,
     categories: "Platformer",
   });
+});
+
+test("expect selectBinaryItemById given an array of objects and a string key with no correct answer returns an empty array (doesnt fucking crash)", () => {
+  const result = selectBinaryItemById(pdfs, "id", "5");
+  expect(result.length).toEqual(0);
 });
