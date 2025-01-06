@@ -40,5 +40,5 @@ test("expect selectBinaryItemById given an array of objects and only 1 object to
 
 test("expect selectBinaryItemById given an array of objects and a string key with no correct answer returns an empty array (doesnt fucking crash)", () => {
   const result = selectBinaryItemById(pdfs, "id", "5");
-  expect(result.length).toEqual(0);
+  expect(result).toEqual(null);
 });

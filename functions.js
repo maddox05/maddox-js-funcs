@@ -752,5 +752,5 @@ export function selectBinaryItemById(array, idName, id) {
       right = middle - 1;
     }
   }
-  return [];
+  return null;
 }
