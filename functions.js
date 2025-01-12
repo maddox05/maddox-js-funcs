@@ -724,9 +724,11 @@ export function selectItemById(array, idName, id) {
  * @param {Array} array
  * @param {String} idName
  * @param {Any} id must be same type as type in object ur looking for
+ * @param {Object} options
+ * @param {Boolean} toLowerCase sets the [idName] in the array to lower case for equivalences
  * @returns {Object} returns the object found or null
  */
-export function selectBinaryItemById(array, idName, id) {
+export function selectBinaryItemById(array, idName, id, options = null) {
   if (!Array.isArray(array)) {
     return null;
   }
@@ -735,13 +737,17 @@ export function selectBinaryItemById(array, idName, id) {
   let middle = 0;
   while (left <= right) {
     middle = Math.floor((right + left) / 2);
-    if (array[middle][idName] === id) {
+    const middleItem = options?.toLowerCase
+      ? array[middle][idName].toLowerCase()
+      : array[middle][idName];
+
+    if (middleItem === id) {
       return array[middle];
     }
 
-    if (id > array[middle][idName]) {
+    if (id > middleItem) {
       left = middle + 1;
-    } else if (id < array[middle][idName]) {
+    } else if (id < middleItem) {
       right = middle - 1;
     } else {
       console.log("how?");
