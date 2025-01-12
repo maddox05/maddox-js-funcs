@@ -4735,3 +4735,19 @@ export const apps_state_gun_spin_issue = [
     categories: "Platformer",
   },
 ];
+
+export const one_choice = [
+  {
+    id: 763,
+    answer: "2x+1",
+    is_correct: 1,
+    created_by: 15,
+    question_id: 193,
+    type: "frq",
+    class_id: 9,
+    group_id: "77",
+    school_id: 2,
+    class_category: 2,
+    num_submissions: null,
+  },
+];

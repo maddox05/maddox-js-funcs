@@ -7,6 +7,7 @@ import {
   apps,
   apps_state_gun_spin_issue,
   classes_without_purdue_classes,
+  one_choice,
   pdfs,
 } from "./consts";
 
@@ -67,4 +68,24 @@ test("expect selectBinaryItemById given a item to find in a sorted list finds th
     desc: null,
     categories: "2D New",
   });
+});
+
+test("expect selectMultipleBinarySearch given one choice to find that choice and return it in an array", () => {
+  const result = selectMultipleBinarySearch(one_choice, "question_id", 193);
+  console.log(result);
+  expect(result).toEqual([
+    {
+      id: 763,
+      answer: "2x+1",
+      is_correct: 1,
+      created_by: 15,
+      question_id: 193,
+      type: "frq",
+      class_id: 9,
+      group_id: "77",
+      school_id: 2,
+      class_category: 2,
+      num_submissions: null,
+    },
+  ]);
 });
