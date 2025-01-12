@@ -725,7 +725,7 @@ export function selectItemById(array, idName, id) {
  * @param {String} idName
  * @param {Any} id must be same type as type in object ur looking for
  * @param {Object} options
- * @param {Boolean} toLowerCase sets the [idName] in the array to lower case for equivalences
+ * @param {Boolean} options.toLowerCase sets the [idName] in the array to lower case for equivalences
  * @returns {Object} returns the object found or null
  */
 export function selectBinaryItemById(array, idName, id, options = null) {
