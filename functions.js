@@ -712,6 +712,26 @@ export function selectItemById(array, idName, id) {
 }
 
 /**
+ * Uses ===
+ * @param {Array} array
+ * @param {String} idName
+ * @param {Any} id
+ * @returns {*} returns the object found or null
+ */
+export function selectItemsById(array, idName, id) {
+  if (!Array.isArray(array)) {
+    return null;
+  }
+  const ret = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]?.[idName] === id) {
+      ret.push(array[i]);
+    }
+  }
+  return ret;
+}
+
+/**
  * Pass in an array of objects pls
  * Uses ===
  * @param {Array} array
