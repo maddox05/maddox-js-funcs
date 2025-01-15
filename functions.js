@@ -198,7 +198,7 @@ export function findNeedlesInArrayOfObjectsLINEAR(
   keyNamesToCheck,
   needles
 ) {
-  if (!array || !needles || !keyNamesToCheck || !returnKeyWanted) {
+  if (!array || !needles || !keyNamesToCheck) {
     return null;
   }
   let both_equal = false;
