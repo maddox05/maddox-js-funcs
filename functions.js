@@ -177,16 +177,11 @@ export function updateArrObjectsWithNewVals(old, newA) {
  * @param {Array} keyNames
  * @param {*} needle
  */
-export function findNeedleInArrayOfObjectsLINEAR(
-  array,
-  keyName,
-  needle,
-  keyWanted
-) {
+export function findNeedleInArrayOfObjectsLINEAR(array, keyName, needle) {
   if (!array || !needle) return null;
   for (let i = 0; i < array.length; i++) {
     if (array[i][keyName] == needle) {
-      return array[i][keyWanted];
+      return array[i];
     }
   }
   return null;
@@ -197,13 +192,11 @@ export function findNeedleInArrayOfObjectsLINEAR(
  * @param {Array} array haystack
  * @param {Array} keyNamesToCheck ex ["name", "class_id"]
  * @param {Array} needles ex ["Test_Topic", "1"]
- * @param {Array} keyWanted key you want returned at location where it found the needle
  */
 export function findNeedlesInArrayOfObjectsLINEAR(
   array,
   keyNamesToCheck,
-  needles,
-  returnKeyWanted
+  needles
 ) {
   if (!array || !needles || !keyNamesToCheck || !returnKeyWanted) {
     return null;
@@ -219,7 +212,7 @@ export function findNeedlesInArrayOfObjectsLINEAR(
         both_equal = true;
       }
     }
-    if (both_equal) return array[i][returnKeyWanted];
+    if (both_equal) return array[i];
   }
   return null;
 }
