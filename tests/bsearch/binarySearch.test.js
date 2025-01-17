@@ -6,6 +6,7 @@ import {
 import {
   apps,
   apps_state_gun_spin_issue,
+  array_o_choices,
   classes_without_purdue_classes,
   one_choice,
   pdfs,
@@ -86,6 +87,72 @@ test("expect selectMultipleBinarySearch given one choice to find that choice and
       school_id: 2,
       class_category: 2,
       num_submissions: null,
+    },
+  ]);
+});
+
+test("given a sorted array by a certain id run selectMutlipleBinarySearch, assert it retursn correct elems", () => {
+  const result = selectMutlipleBinarySearch(array_o_choices, "question_id", 65);
+  expect(result).toStrictEqual([
+    {
+      id: 289,
+      answer: "[0, ∞)",
+      is_correct: 0,
+      created_by: 13,
+      question_id: 65,
+      type: "mcq",
+      class_id: 6,
+      group_id: 29,
+      school_id: 1,
+      class_category: 2,
+    },
+    {
+      id: 290,
+      answer: "(0, ∞)",
+      is_correct: 1,
+      created_by: 13,
+      question_id: 65,
+      type: "mcq",
+      class_id: 6,
+      group_id: 29,
+      school_id: 1,
+      class_category: 2,
+    },
+    {
+      id: 291,
+      answer: "[0, 1)",
+      is_correct: 0,
+      created_by: 13,
+      question_id: 65,
+      type: "mcq",
+      class_id: 6,
+      group_id: 29,
+      school_id: 1,
+      class_category: 2,
+    },
+    {
+      id: 292,
+      answer: "(1, ∞)",
+      is_correct: 0,
+      created_by: 13,
+      question_id: 65,
+      type: "mcq",
+      class_id: 6,
+      group_id: 29,
+      school_id: 1,
+      class_category: 2,
+    },
+    {
+      id: 293,
+      answer: "(-∞, ∞)",
+      is_correct: 0,
+      created_by: 13,
+      question_id: 65,
+      type: "mcq",
+      class_id: 6,
+      group_id: 29,
+      school_id: 1,
+      class_category: 2,
     },
   ]);
 });
